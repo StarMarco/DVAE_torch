@@ -22,8 +22,9 @@ should be represented as noncausal sequences,
 
 $$
 p(y_{1:T}|x_{1:T}) = \int p(y_{1:T}, z_{1:T} | x_{1:T}) dz_{1:T}
-&&
-&&
+$$
+
+$$
 p(y_{1:T}, z_{1:T} | x_{1:T}) = \prod_{t=1}^T p(y_t|y_{1:t-1}, z_{1:t}, x_{1:T}) p(z_t|z_{1:t-1}, y_{1:t-1}, x_{1:T})
 $$
 Notice if $y_{1:T}$ is our input sequence (the RUL sequence in this case) and $x_{1:T}$ is our conditional sequence (our sensor observation sequences in this case) then $x_{1:T}$ does 

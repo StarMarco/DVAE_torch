@@ -56,7 +56,7 @@ training.py
   --inference chooses the inference model used for the DVAE, only "rnn" is available 
   --encoder chooses the encoder that encoders the causal and noncausal sequences such as y_{1:t} and x_{1:T}, "rnn" is the best option although "none" exists (mainly for other cases such as unsupervised learning)
   --initializer chooses the initializer method for calculating the initial latent variable $z_0$ "controls" applies a feedforward network on the first control variable and the output is z_0
-  --transition_inputs a string that allows the user to control the conditions of the transition model distribution e.g. "zyx" gives $p(z_t|z_{1:t-1}, y_{1:t-1}, x_{1:T}$ while "zx" simplifies it to p(z_t|z_{1:t-1}, x_{1:T}
+  --transition_inputs a string that allows the user to control the conditions of the transition model distribution e.g. "zyx" gives $p(z_t|z_{1:t-1}, y_{1:t-1}, x_{1:T})$ while "zx" simplifies it to p(z_t|z_{1:t-1}, x_{1:T})
   --measurement_inputs does the same as transition_inputs but for the measurement model 
   --init_inputs does the same as the other _inputs arguments, however, currently the options for initilizer models mean this doesn't actually affect their models. 
   --controls if True this creates a conditional model otherwise if we want to train an unsupervised DVAE model (maybe to reconstruct the sensor inputs instead of RUL estimation) then we can set this to False 
@@ -100,7 +100,7 @@ semi_supervised.py
   --pre_inference chooses the inference model used for the DVAE, only "rnn" is available 
   --pre_encoder chooses the encoder that encoders the causal and noncausal sequences such as y_{1:t} and x_{1:T}, "rnn" is the best option although "none" exists (mainly for other cases such as unsupervised learning)
   --pre_initializer chooses the initializer method for calculating the initial latent variable $z_0$ "controls" applies a feedforward network on the first control variable and the output is $z_0$
-  --pre_transition_inputs a string that allows the user to control the conditions of the transition model distribution e.g. "zyx" gives p(z_t|z_{1:t-1}, y_{1:t-1}, x_{1:T} while "zx" simplifies it to p(z_t|z_{1:t-1}, x_{1:T}
+  --pre_transition_inputs a string that allows the user to control the conditions of the transition model distribution e.g. "zyx" gives p(z_t|z_{1:t-1}, y_{1:t-1}, x_{1:T}) while "zx" simplifies it to p(z_t|z_{1:t-1}, x_{1:T})
   --pre_measurement_inputs does the same as transition_inputs but for the measurement model 
   --pre_init_inputs does the same as the other _inputs arguments, however, currently the options for initilizer models mean this doesn't actually affect their models. 
 ```

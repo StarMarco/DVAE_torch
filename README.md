@@ -24,9 +24,12 @@ $$
 p(y_{1:T}|x_{1:T}) = \int p(y_{1:T}, z_{1:T} | x_{1:T}) dz_{1:T}
 $$
 
+The term in the integral can be expanded into 
+
 $$
 p(y_{1:T}, z_{1:T} | x_{1:T}) = \prod_{t=1}^T p(y_t|y_{1:t-1}, z_{1:t}, x_{1:T}) p(z_t|z_{1:t-1}, y_{1:t-1}, x_{1:T})
 $$
+
 Notice if $y_{1:T}$ is our input sequence (the RUL sequence in this case) and $x_{1:T}$ is our conditional sequence (our sensor observation sequences in this case) then $x_{1:T}$ does 
 not simplify further and must be kept noncausal (current time variables such as $z_t$ and $y_t$ rely on past, present and future variables). A sequence-to-sequence model is used
 to implement this practically for RUL estimation. If this is done, then the DVAE is trained to sample from the distribution $p(y_{1:T}|x_{1:T})$ which represents the probability of 

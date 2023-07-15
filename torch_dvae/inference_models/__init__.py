@@ -1,0 +1,1 @@
+from torch_dvae.inference_models.recurrent import RNNInference 

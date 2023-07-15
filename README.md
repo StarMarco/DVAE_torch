@@ -55,7 +55,7 @@ training.py
   --measurement chooses the measurement model, agian only "mlp" is available 
   --inference chooses the inference model used for the DVAE, only "rnn" is available 
   --encoder chooses the encoder that encoders the causal and noncausal sequences such as y_{1:t} and x_{1:T}, "rnn" is the best option although "none" exists (mainly for other cases such as unsupervised learning)
-  --initializer chooses the initializer method for calculating the initial latent variable $z_0$ "controls" applies a feedforward network on the first control variable and the output is z_0
+  --initializer chooses the initializer method for calculating the initial latent variable z_0 "controls" applies a feedforward network on the first control variable and the output is z_0
   --transition_inputs a string that allows the user to control the conditions of the transition model distribution e.g. "zyx" gives $p(z_t|z_{1:t-1}, y_{1:t-1}, x_{1:T})$ while "zx" simplifies it to p(z_t|z_{1:t-1}, x_{1:T})
   --measurement_inputs does the same as transition_inputs but for the measurement model 
   --init_inputs does the same as the other _inputs arguments, however, currently the options for initilizer models mean this doesn't actually affect their models. 
@@ -95,12 +95,12 @@ semi_supervised.py
   using only 10% of the RUL targets that would normally be available for the fully supervised model.
   --valid_split is what split was in the training.py script e.g. 0.2 would mean a 80/20 training/validation split 
   *Note all these pre_ arguments are effectively the same as their counterparts without the pre_ prefix. However, these apply for defining the unsupervised model used in the semi-supervised training setup. 
-  --pre_transition allows the user to choose various transition models "mlp" is the only option but more may be added in the future 
-  --pre_measurement chooses the measurement model, agian only "mlp" is available 
-  --pre_inference chooses the inference model used for the DVAE, only "rnn" is available 
-  --pre_encoder chooses the encoder that encoders the causal and noncausal sequences such as y_{1:t} and x_{1:T}, "rnn" is the best option although "none" exists (mainly for other cases such as unsupervised learning)
-  --pre_initializer chooses the initializer method for calculating the initial latent variable $z_0$ "controls" applies a feedforward network on the first control variable and the output is $z_0$
-  --pre_transition_inputs a string that allows the user to control the conditions of the transition model distribution e.g. "zyx" gives p(z_t|z_{1:t-1}, y_{1:t-1}, x_{1:T}) while "zx" simplifies it to p(z_t|z_{1:t-1}, x_{1:T})
-  --pre_measurement_inputs does the same as transition_inputs but for the measurement model 
-  --pre_init_inputs does the same as the other _inputs arguments, however, currently the options for initilizer models mean this doesn't actually affect their models. 
+  --pre_transition
+  --pre_measurement 
+  --pre_inference 
+  --pre_encoder
+  --pre_initializer 
+  --pre_transition_inputs 
+  --pre_measurement_inputs
+  --pre_init_inputs 
 ```

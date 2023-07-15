@@ -54,9 +54,9 @@ training.py
   --transition allows the user to choose various transition models "mlp" is the only option but more may be added in the future 
   --measurement chooses the measurement model, agian only "mlp" is available 
   --inference chooses the inference model used for the DVAE, only "rnn" is available 
-  --encoder chooses the encoder that encoders the causal and noncausal sequences such as $y_{1:t}$ and $x_{1:T}$, "rnn" is the best option although "none" exists (mainly for other cases such as unsupervised learning)
-  --initializer chooses the initializer method for calculating the initial latent variable $z_0$ "controls" applies a feedforward network on the first control variable and the output is $z_0$
-  --transition_inputs a string that allows the user to control the conditions of the transition model distribution e.g. "zyx" gives $p(z_t|z_{1:t-1}, y_{1:t-1}, x_{1:T}$ while "zx" simplifies it to $p(z_t|z_{1:t-1}, x_{1:T}$
+  --encoder chooses the encoder that encoders the causal and noncausal sequences such as y_{1:t} and x_{1:T}, "rnn" is the best option although "none" exists (mainly for other cases such as unsupervised learning)
+  --initializer chooses the initializer method for calculating the initial latent variable $z_0$ "controls" applies a feedforward network on the first control variable and the output is z_0
+  --transition_inputs a string that allows the user to control the conditions of the transition model distribution e.g. "zyx" gives $p(z_t|z_{1:t-1}, y_{1:t-1}, x_{1:T}$ while "zx" simplifies it to p(z_t|z_{1:t-1}, x_{1:T}
   --measurement_inputs does the same as transition_inputs but for the measurement model 
   --init_inputs does the same as the other _inputs arguments, however, currently the options for initilizer models mean this doesn't actually affect their models. 
   --controls if True this creates a conditional model otherwise if we want to train an unsupervised DVAE model (maybe to reconstruct the sensor inputs instead of RUL estimation) then we can set this to False 
@@ -86,7 +86,7 @@ testing.py
   --split used for the semi-supervised model testing, this is the split that artificially gets rid of some of the targets from the training set. For the semi-supervised models this is part of their file 
   names and is used here to choose that file for testing. 
   --semisupervised set this to True if you want to test a trained semi-supervised model 
-  --N is the number of samples generated when testing, the more there are the closer the model approximates $p(y_{1:T}|x_{1:T})$
+  --N is the number of samples generated when testing, the more there are the closer the model approximates p(y_{1:T}|x_{1:T})
 ```
 semi_supervised.py
 ```
@@ -98,9 +98,9 @@ semi_supervised.py
   --pre_transition allows the user to choose various transition models "mlp" is the only option but more may be added in the future 
   --pre_measurement chooses the measurement model, agian only "mlp" is available 
   --pre_inference chooses the inference model used for the DVAE, only "rnn" is available 
-  --pre_encoder chooses the encoder that encoders the causal and noncausal sequences such as $y_{1:t}$ and $x_{1:T}$, "rnn" is the best option although "none" exists (mainly for other cases such as unsupervised learning)
+  --pre_encoder chooses the encoder that encoders the causal and noncausal sequences such as y_{1:t} and x_{1:T}, "rnn" is the best option although "none" exists (mainly for other cases such as unsupervised learning)
   --pre_initializer chooses the initializer method for calculating the initial latent variable $z_0$ "controls" applies a feedforward network on the first control variable and the output is $z_0$
-  --pre_transition_inputs a string that allows the user to control the conditions of the transition model distribution e.g. "zyx" gives $p(z_t|z_{1:t-1}, y_{1:t-1}, x_{1:T}$ while "zx" simplifies it to $p(z_t|z_{1:t-1}, x_{1:T}$
+  --pre_transition_inputs a string that allows the user to control the conditions of the transition model distribution e.g. "zyx" gives p(z_t|z_{1:t-1}, y_{1:t-1}, x_{1:T} while "zx" simplifies it to p(z_t|z_{1:t-1}, x_{1:T}
   --pre_measurement_inputs does the same as transition_inputs but for the measurement model 
   --pre_init_inputs does the same as the other _inputs arguments, however, currently the options for initilizer models mean this doesn't actually affect their models. 
 ```

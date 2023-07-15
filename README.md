@@ -37,6 +37,7 @@ the RUL given the sensor observations. Hence, this allows us to train a probabil
 
 training.py 
   The arguments:
+```
   --dataset chooses between the CMAPSS dataset options "FD001", "FD002", "FD003", "FD004"
   --save_path type in a string such as "saved_models/DVAE" the file "saved_models" already exists for you to save models in. This saves files during training based on the validation loss
     Note this is just the beginning of the file name the full file name is "save_path_transition_measurement_inference_encoder_initializer_dataset.pth
@@ -62,10 +63,11 @@ training.py
   --unsupervised if True then we train an unsupervised model (used to train a DVAE for sensor reconstruction not RUL estimation) 
   --load_hyperparameters if you have some saved hyperparameters in the "saved_hypes" directory (see the hyperparameters directory on how to perform Bayesian Optimization to populate that file) 
   --trial is the trial that should be loaded from the hyperparameters file if load_hyperparameters was set to True
-
+```
 testing.py 
   Has many similar arguments as the training.py script for model construction. Note you want to have the same "save_path" argument as training.py as the testing.py script will load the model that was trained 
   and saved using this script. The arguments are as follows:
+  ```
   --dataset is the same as in training.py 
   --save_path same as in training.py 
   --run_model if you have already run the testing script but you want to generate some of the plots again without having to wait for the model to revaluate the entire testing dataset again set this to True 
@@ -85,8 +87,9 @@ testing.py
   names and is used here to choose that file for testing. 
   --semisupervised set this to True if you want to test a trained semi-supervised model 
   --N is the number of samples generated when testing, the more there are the closer the model approximates $p(y_{1:T}|x_{1:T})$
-
+```
 semi_supervised.py
+```
   It has the same arguments as training.py but also adds some additional ones, such as:
   --split is now an int that determines how many targets to remove from the training dataset. e.g. 90 gets rid of 90% of the targets so the semi-supervised model is required to train a model for RUL estimation 
   using only 10% of the RUL targets that would normally be available for the fully supervised model.
@@ -100,3 +103,4 @@ semi_supervised.py
   --pre_transition_inputs a string that allows the user to control the conditions of the transition model distribution e.g. "zyx" gives $p(z_t|z_{1:t-1}, y_{1:t-1}, x_{1:T}$ while "zx" simplifies it to $p(z_t|z_{1:t-1}, x_{1:T}$
   --pre_measurement_inputs does the same as transition_inputs but for the measurement model 
   --pre_init_inputs does the same as the other _inputs arguments, however, currently the options for initilizer models mean this doesn't actually affect their models. 
+```

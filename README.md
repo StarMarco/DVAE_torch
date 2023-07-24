@@ -39,8 +39,8 @@ training.py
   The arguments:
 ```
   --dataset chooses between the CMAPSS dataset options "FD001", "FD002", "FD003", "FD004"
-  --save_path type in a string such as "saved_models/DVAE" the file "saved_models" already exists for you to save models in. This saves files during training based on the validation loss
-    Note this is just the beginning of the file name the full file name is "save_path_transition_measurement_inference_encoder_initializer_dataset.pth
+  --save_path type in a string such as "saved_models/DVAE" which will save the file in the directory "saved_models". This saves files during training based on the validation loss
+    Note this is just the beginning of the file name; the full file name is "save_path_transition_measurement_inference_encoder_initializer_dataset.pth
     Notice each of those terms are arguments in this training script, and they are all strings, so if you change any of these, a different save file is made.
   --zdim is the dimension size of the latent variables 
   --hdim is the dimension size of the hidden variables of the various networks used in the DVAE 

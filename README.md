@@ -6,7 +6,7 @@ others understand my research or the topics presented here.*
 This repository contains the code for training and testing Dynamical Variational Autoencoders (DVAEs) using PyTorch. Specifically, this is applied to the CMAPSS turbofan engine dataset from NASA
 (data can be found in this repository or [here](https://www.nasa.gov/content/prognostics-center-of-excellence-data-set-repository) under header 6. Turbofan Engine Degradation Simulation). 
 Here it is applied to estimate the Remaining Useful Life (RUL) of each turbofan engine given the sensors from the engine. This is based on work done in Chapter 5 of my PhD thesis 
-"Degradation Vector Fields with Uncertainty Considerations" (which will soon be available). 
+"Degradation Vector Fields with Uncertainty Considerations" ([link](http://hdl.handle.net/20.500.11937/93343)). 
 
 The training and testing scripts can be run with various arguments to train and test the supervised model for RUL estimation. The semi_supervised script trains a semi-supervised model 
 by splitting the training data further and hiding a portion of the RUL targets from the model to test how well the semi-supervised model can perform with small amounts of target data available. 
